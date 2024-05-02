@@ -17,19 +17,44 @@ public class ToolController extends Application {
         AnchorPane root = new AnchorPane();
         root.setPrefSize(1000, 1000);
 
-        Button scanningButton = new Button("Scanning");
-        scanningButton.setOnAction(e -> showMessage("Сканирование - реализация nmap. Реализация"));
+        Button scanningButton = new Button("Simply port scanner");
+        scanningButton.setOnAction(e -> showMessage("Сканирование портов необходимо для четкого\n" +
+                " понимания того, какое ПО и сервисы \nрасположены на машине, после чего можно\n" +
+                " составлять возможные вектора реализации\n первичного доступа в целевую систему"));
 
-        Button scanning2Button = new Button("Ovannisyan");
-        scanning2Button.setOnAction(e -> showMessage("Сканирование - реализация nmap. Реализация"));
+        Button scanning2Button = new Button("Optimised port scanner");
+        scanning2Button.setOnAction(e -> showMessage("Оптимизированное и быстрое сканирование\n портов" +
+                " отлично подойдет пользователям для \nбыстрого реагирования при изучении \nанализа" +
+                " защищенности целевой системы. \nОтнюдь никому не придется часами ждать \nрезультатов" +
+                " сканирования портов"));
 
-        Button reverseButton = new Button("Reverse");
-        reverseButton.setOnAction(e -> showMessage("Реверс - изменение порядка следования элементов"));
+        Button reverseButton = new Button("Fuzzer");
+        reverseButton.setOnAction(e -> showMessage("Фаззер - незаменимый инструмент \nпентестера при анализе" +
+                " уязвимостей \nна веб-ресурсах. Быстрый перебор каталогов\n веб-сервера позволит пользователям\n" +
+                " найти все скрытые тайны системного администратора"));
 
-        Button attackButton = new Button("Attack");
-        attackButton.setOnAction(e -> showMessage("Атака - попытка вторжения в систему"));
+        Button attackButton = new Button("SHA-encoding tool");
+        attackButton.setOnAction(e -> showMessage("Есть большое количество различных кодировок.\n Многие" +
+                " из них уже легко взламываются,\n другие - посложнее, но тоже. Весьма \nхорошим вариантом" +
+                " будет использование \nнескольких 'замудренных' алгоримтов \nхеширования для большей" +
+                " надежности"));
 
-        VBox buttons = new VBox(10, scanningButton, scanning2Button, reverseButton, attackButton);
+        Button pingButton = new Button("ping scanning");
+        pingButton.setOnAction(e -> showMessage("Хочешь приступить к пентесту,\n но не понимаешь, блочит" +
+                " ли\n твои пакеты файрвол? Или просто \nхочешь проверить сетевую доступность \nудаленного" +
+                " хоста? Тебе явно стоит \nпоиграться с ping-cканированием!"));
+
+        Button curlButton = new Button("curl request");
+        curlButton.setOnAction(e -> showMessage("Какой анализ защищенности веба \nвозможен без использования" +
+                " веб-запросов? Он явно \nнужен нам под рукой, чтобы оперативно \nполучить исходные данные" +
+                " для \nпоследующего анализа"));
+
+        Button signaButton = new Button("signature of file");
+        signaButton.setOnAction(e -> showMessage("Получил странный файл, но хочешь \nв пару кликов узнать" +
+                " его \nфункционал? А что если это модификация \nизвестного ПО или утилиты? \nЭто явно наш вариант!"));
+
+        VBox buttons = new VBox(10, scanningButton, scanning2Button, reverseButton, attackButton, pingButton,
+                curlButton, signaButton);
         buttons.setAlignment(Pos.CENTER);
         AnchorPane.setTopAnchor(buttons, 450.0);
         AnchorPane.setLeftAnchor(buttons, 450.0);
