@@ -7,7 +7,7 @@ import javafx.application.Application;
 import java.util.concurrent.*;
 
 public class main {
-    public static void main(String[] args) throws InterruptedException,ExecutionException, NoSuchAlgorithmException, IOException {
+    public static void main(String[] args) throws Exception {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -40,6 +40,7 @@ public class main {
         System.out.println("5 - ping scanning");
         System.out.println("6 - curl request");
         System.out.println("7 - signature of file (check malicious)");
+        System.out.println("8 - Cookie Injection");
         System.out.println("10 - help page");
 
         System.out.println("Your choose: ");
@@ -94,19 +95,18 @@ public class main {
 
         }
 
+        if (temp == 8) {
+
+            System.out.println("OK. Starting...");
+            CookieInjection.start();
+
+        }
+
 
         if (temp == 10) {
 
             System.out.println("OK. Starting...");
             Application.launch(ToolController.class, args);
-        }
-
-
-
-        else {
-
-            System.out.println("Incorrect parameters! Try again!");
-
         }
 
 

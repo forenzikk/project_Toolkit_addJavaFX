@@ -10,6 +10,7 @@ module org.example.cloning_project_toolkit {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.logging;
 
     opens org.example.cloning_project_toolkit to javafx.fxml;
     exports org.example.cloning_project_toolkit;

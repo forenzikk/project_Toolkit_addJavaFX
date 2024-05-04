@@ -29,9 +29,9 @@ public class ToolController extends Application {
                 " сканирования портов"));
 
         Button reverseButton = new Button("Fuzzer");
-        reverseButton.setOnAction(e -> showMessage("Фаззер - незаменимый инструмент \nпентестера при анализе" +
-                " уязвимостей \nна веб-ресурсах. Быстрый перебор каталогов\n веб-сервера позволит пользователям\n" +
-                " найти все скрытые тайны системного администратора"));
+        reverseButton.setOnAction(e -> showMessage("   Фаззер - незаменимый инструмент \nпентестера при анализе" +
+                " уязвимостей \n   на веб-ресурсах. Быстрый перебор каталогов\n веб-сервера позволит пользователям\n" +
+                "    найти все скрытые тайны системного администратора"));
 
         Button attackButton = new Button("SHA-encoding tool");
         attackButton.setOnAction(e -> showMessage("Есть большое количество различных кодировок.\n Многие" +
@@ -45,9 +45,9 @@ public class ToolController extends Application {
                 " хоста? Тебе явно стоит \nпоиграться с ping-cканированием!"));
 
         Button curlButton = new Button("curl request");
-        curlButton.setOnAction(e -> showMessage("Какой анализ защищенности веба \nвозможен без использования" +
-                " веб-запросов? Он явно \nнужен нам под рукой, чтобы оперативно \nполучить исходные данные" +
-                " для \nпоследующего анализа"));
+        curlButton.setOnAction(e -> showMessage("   Какой анализ защищенности веба \nвозможен без использования" +
+                " веб-запросов? Он явно\nнужен нам под рукой, чтобы оперативно \nполучить исходные данные" +
+                " для \n   последующего анализа"));
 
         Button signaButton = new Button("signature of file");
         signaButton.setOnAction(e -> showMessage("Получил странный файл, но хочешь \nв пару кликов узнать" +
@@ -78,7 +78,7 @@ public class ToolController extends Application {
         VBox vbox = new VBox(10, label, closeButton);
         vbox.setAlignment(Pos.CENTER);
 
-        Scene popupScene = new Scene(vbox, 300, 200);
+        Scene popupScene = new Scene(vbox, 400, 300);
         popupStage.setScene(popupScene);
         popupStage.show();
     }
