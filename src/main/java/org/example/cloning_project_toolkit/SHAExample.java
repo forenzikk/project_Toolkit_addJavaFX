@@ -3,11 +3,15 @@ package org.example.cloning_project_toolkit;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.Scanner;
 
 public class SHAExample {
 
     public static void maining() throws NoSuchAlgorithmException {
-        String passwordToHash = "password";
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the password to hash: ");
+        String passwordToHash = scanner.nextLine();
         String salt = getSalt();
 
         String securePassword = get_SHA_1_SecurePassword(passwordToHash, salt);
