@@ -77,7 +77,7 @@ public class main {
         if (temp == 5) {
 
             System.out.println("OK. Starting...");
-            ping.main();
+            ping.maining();
 
         }
 
