@@ -1,8 +1,13 @@
 package org.example.cloning_project_toolkit;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class SHAExample {
@@ -14,17 +19,44 @@ public class SHAExample {
         String passwordToHash = scanner.nextLine();
         String salt = getSalt();
 
-        String securePassword = get_SHA_1_SecurePassword(passwordToHash, salt);
-        System.out.println("SHA 1: " + securePassword);
+        // Создание файла отчета
+        String timestamp = LocalDateTime.now()
+                .format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+        String reportFilename = "hash_report_" + timestamp + ".txt";
 
-        securePassword = get_SHA_256_SecurePassword(passwordToHash, salt);
-        System.out.println("SHA 256: " + securePassword);
+        try (PrintWriter writer = new PrintWriter(new FileWriter(reportFilename))) {
 
-        securePassword = get_SHA_384_SecurePassword(passwordToHash, salt);
-        System.out.println("SHA 384: " + securePassword);
+            // Запись информации о хешировании
+            writer.println("Отчет хеширования пароля");
+            writer.println("Пароль: " + passwordToHash);
+            writer.println("Соль: " + salt);
+            writer.println("----------------------------------");
 
-        securePassword = get_SHA_512_SecurePassword(passwordToHash, salt);
-        System.out.println("SHA 512: " + securePassword);
+            String securePassword = get_SHA_1_SecurePassword(passwordToHash, salt);
+            System.out.println("SHA 1: " + securePassword);
+            writer.println("SHA 1: " + securePassword);
+
+            securePassword = get_SHA_256_SecurePassword(passwordToHash, salt);
+            System.out.println("SHA 256: " + securePassword);
+            writer.println("SHA 256: " + securePassword);
+
+            securePassword = get_SHA_384_SecurePassword(passwordToHash, salt);
+            System.out.println("SHA 384: " + securePassword);
+            writer.println("SHA 384: " + securePassword);
+
+            securePassword = get_SHA_512_SecurePassword(passwordToHash, salt);
+            System.out.println("SHA 512: " + securePassword);
+            writer.println("SHA 512: " + securePassword);
+
+            System.out.println(
+                    "Хеширование завершено. Отчет сохранен в файл: "
+                            + reportFilename);
+            writer.println("----------------------------------");
+            writer.println("Хеширование завершено.");
+
+        } catch (IOException e) {
+            System.err.println("Ошибка при создании отчета: " + e.getMessage());
+        }
     }
 
     private static String get_SHA_1_SecurePassword(String passwordToHash,
@@ -103,11 +135,20 @@ public class SHAExample {
         return generatedPassword;
     }
 
-    // Add salt
+    // Метод для генерации случайной соли
     private static String getSalt() throws NoSuchAlgorithmException {
         SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
         byte[] salt = new byte[16];
         sr.nextBytes(salt);
-        return salt.toString();
+        return bytesToHex(salt);
+    }
+
+    // Метод для преобразования массива байтов в шестнадцатеричную строку
+    private static String bytesToHex(byte[] bytes) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bytes) {
+            sb.append(String.format("%02x", b));
+        }
+        return sb.toString();
     }
 }
