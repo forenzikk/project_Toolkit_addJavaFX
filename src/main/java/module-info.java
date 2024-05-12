@@ -11,6 +11,7 @@ module org.example.cloning_project_toolkit {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.logging;
+    requires java.sql;
 
     opens org.example.cloning_project_toolkit to javafx.fxml;
     exports org.example.cloning_project_toolkit;
