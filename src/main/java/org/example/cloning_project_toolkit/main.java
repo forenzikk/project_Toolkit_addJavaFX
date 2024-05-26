@@ -54,63 +54,63 @@ public class main {
 
         }
 
-        if (temp == 2) {
+        else if (temp == 2) {
 
             System.out.println("OK. Starting...");
             OptimisedPortScanner.startScanning();
 
         }
 
-        if (temp == 3) {
+        else if (temp == 3) {
 
             System.out.println("OK. Starting...");
             AdvancedFuzzer.start();
 
         }
 
-        if (temp == 4) {
+        else if (temp == 4) {
 
             System.out.println("OK. Starting...");
             SHAExample.maining();
 
         }
 
-        if (temp == 5) {
+        else if (temp == 5) {
 
             System.out.println("OK. Starting...");
             ping.maining();
 
         }
 
-        if (temp == 6) {
+        else if (temp == 6) {
 
             System.out.println("OK. Starting...");
             curl.starting();
 
         }
 
-        if (temp == 7) {
+        else if (temp == 7) {
 
             System.out.println("OK. Starting...");
             signature.checkIt();
 
         }
 
-        if (temp == 8) {
+        else if (temp == 8) {
 
             System.out.println("OK. Starting...");
             CookieInjection.start();
 
         }
 
-        if (temp == 9) {
+        else if (temp == 9) {
 
             System.out.println("OK. Starting...");
             dnsChecker.start();
 
         }
 
-        if (temp == 10) {
+        else if (temp == 10) {
 
             System.out.println("OK. Starting...");
             Application.launch(ToolController.class, args);

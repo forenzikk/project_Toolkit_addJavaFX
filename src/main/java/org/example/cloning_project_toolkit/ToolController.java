@@ -51,6 +51,13 @@ public class ToolController extends Application {
                 "cookie также может быть установлено значение secure flag true для HTTP-соединения. Следовательно, файлы" +
                 "cookie могут отправляться по HTTPS-соединению, установленному с помощью HTTP-соединения. Инструмент" +
                 "лишь выявляет данную уязвимость в связи с соблюдением законодательства РФ и этичными нормами");
+        Button dnsCheck = createStyledButton("DNS Checker", "Задетектить dns на VirusTotal? Проанализировать" +
+                "целевые адреса для пентеста? Это явно то, что нужно red team для получения возможных багов или просто" +
+                "информации о целевой системе или целом скоупе. Инструмент также подойдет для предварительного OSINT'а" +
+                "систем жертвы или вендора");
+        Button info = createStyledButton("Info", "Реализация данного инструмента подразумевается лишь в" +
+                "образовательных целях. В нем представлены программы основных решений в области тестирования на " +
+                "проникновение. 2024 год");
 
 
         // Добавляем кнопки на панель
@@ -62,6 +69,8 @@ public class ToolController extends Application {
         root.add(curlButton, 1, 1);
         root.add(signatureButton, 1, 2);
         root.add(cookieInjectionButton, 1, 3);
+        root.add(dnsCheck, 2, 0);
+        root.add(info, 2, 1);
 
         for (int i = 0; i < root.getChildren().size(); i++) {
             if (root.getChildren().get(i) instanceof Button) {
