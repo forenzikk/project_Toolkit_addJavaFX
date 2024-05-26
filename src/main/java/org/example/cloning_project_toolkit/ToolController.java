@@ -53,7 +53,7 @@ public class ToolController extends Application {
                 "лишь выявляет данную уязвимость в связи с соблюдением законодательства РФ и этичными нормами");
 
 
-        // Добавляем кнопки на GridPane
+        // Добавляем кнопки на панель
         root.add(scanningButton, 0, 0);
         root.add(scanning2Button, 0, 1);
         root.add(fazzingButton, 0, 2);
@@ -63,6 +63,13 @@ public class ToolController extends Application {
         root.add(signatureButton, 1, 2);
         root.add(cookieInjectionButton, 1, 3);
 
+        for (int i = 0; i < root.getChildren().size(); i++) {
+            if (root.getChildren().get(i) instanceof Button) {
+                Button button = (Button) root.getChildren().get(i);
+                button.setPrefWidth(200); // ширина
+                button.setPrefHeight(50); // высота
+            }
+        }
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
@@ -74,7 +81,7 @@ public class ToolController extends Application {
         Button button = new Button(text);
         button.setOnAction(e -> showMessage(message));
 
-        // Улучшаем стиль кнопки
+        //стиль кнопки
         button.setFont(Font.font("Arial", 14));
         button.setTextFill(Color.WHITE);
         button.setBackground(new javafx.scene.layout.Background(
