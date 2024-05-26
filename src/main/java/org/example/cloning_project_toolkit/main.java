@@ -41,6 +41,7 @@ public class main {
         System.out.println("6 - curl request");
         System.out.println("7 - signature of file (check malicious)");
         System.out.println("8 - Cookie Injection");
+        System.out.println("9 - Domain Checker");
         System.out.println("10 - help page");
 
         System.out.println("Your choose: ");
@@ -102,11 +103,21 @@ public class main {
 
         }
 
+        if (temp == 9) {
+
+            System.out.println("OK. Starting...");
+            dnsChecker.start();
+
+        }
 
         if (temp == 10) {
 
             System.out.println("OK. Starting...");
             Application.launch(ToolController.class, args);
+        }
+
+        else {
+            System.out.println("Incorrect input! Try again");
         }
 
 
